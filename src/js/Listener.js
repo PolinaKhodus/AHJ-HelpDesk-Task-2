@@ -7,7 +7,7 @@ export default class Listener {
   static onPageLoad() {
     const xhr = new XMLHttpRequest();
     
-    const URL = 'http://localhost:7070';
+    const URL = 'http://localhost:9000';
 
     xhr.open('GET', `${URL}?method=allTicket`, true);
 
@@ -47,7 +47,7 @@ export default class Listener {
       params.append('id', id);
       params.append('status', String(newStatus));
 
-      const URL = 'http://localhost:7070';
+      const URL = 'http://localhost:9000';
 
       const xhr = new XMLHttpRequest();
       xhr.open('PATCH', URL, true);
@@ -98,16 +98,16 @@ export default class Listener {
       this.modals[type].hide();
       this.widget.classList.remove('blocked');
 
-      const URL = 'http://localhost:7070';
+      const URL = 'http://localhost:9000';
 
       const xhr = new XMLHttpRequest();
+
       xhr.open('POST', URL, true);
       xhr.addEventListener('load', () => {
         this.modals.msgModal.form.querySelector('p').textContent = xhr.response;
         this.modals.msgModal.show();
         setTimeout(() => this.modals.msgModal.hide(), 1000);
       });
-
       xhr.send(formData);
       return;
     }
@@ -117,7 +117,7 @@ export default class Listener {
       params.append('method', 'deleteTicket');
       params.append('id', id);
 
-      const URL = 'http://localhost:7070';
+      const URL = 'http://localhost:9000';
 
       const xhr = new XMLHttpRequest();
       xhr.open('PATCH', URL, true);
@@ -146,10 +146,10 @@ export default class Listener {
           params.append(name.split('-')[1], value.trim() ? value : 'No description');
         });
 
-      const URL = 'http://localhost:7070';
+      const URL = 'http://localhost:9000';
 
       const xhr = new XMLHttpRequest();
-      xhr.open('PATCH', URL, true);
+      xhr.open('POST', URL, true);
 
       xhr.addEventListener('load', () => {
         const response = JSON.parse(xhr.response);
@@ -166,6 +166,7 @@ export default class Listener {
       });
 
       xhr.send(params);
+
       return;
     }
 

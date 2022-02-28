@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable linebreak-style */
 import Modal from './Modal';
 
 export default class MsgModal extends Modal {
@@ -16,7 +18,6 @@ export default class MsgModal extends Modal {
     document.body.insertAdjacentHTML('beforeend', this.createMarkup());
   }
 
-  // eslint-disable-next-line class-methods-use-this
   createMarkup() {
     return `
       <form class="modal msg-form-modal hidden" data-type="msgModal" novalidate>

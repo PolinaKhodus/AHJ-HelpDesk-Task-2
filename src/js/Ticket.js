@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 import { v4 } from 'uuid';
-import moment from 'module';
+import moment from 'moment';
 
 export default class Ticket {
   constructor({
