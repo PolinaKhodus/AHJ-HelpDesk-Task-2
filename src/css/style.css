@@ -1,35 +1,250 @@
-.input {
-  display: inline-block;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  border: 1px solid #ced4da;
-  border-radius: .25rem;
+.manager-box {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 1000px;
+  margin: 0 auto;
+  border: 1px solid rgb(83, 82, 82);
+  border-radius: 10px;
+  font-family: "Arial", sans-serif;
+  color: rgb(8, 8, 8); 
+}
+
+.manager-header {
+  display: flex;  
+  margin-bottom: 10px;
+  padding: 5px 20px;
+  justify-content: space-between;
+  background: rgb(238, 84, 179);  
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: move;
+}
+
+.manager-header-title {
+  font-size: 20px;
+  color: rgb(252, 229, 246);
+  text-align: right;
+  font-weight: bolder;
+}
+
+.header-dots {
+  width: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  background-image: radial-gradient(rgb(252, 252, 252), gray);
+}
+
+.manager-content {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  box-sizing: border-box;
+  width: 120px;
+  height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(83, 82, 82);
+  border-radius: 10px;
+  background-color: rgb(247, 110, 194);
+  cursor: pointer;
+  font-size: 15px;
+  color: rgb(252, 229, 246);
+  text-align: right;
+  font-weight: bolder;
+}
+
+.tickets-box {
+  box-sizing: border-box;
+  min-height: 50px;  
+}
+
+.tickets-box.empty {
+  border: 1px solid rgb(83, 82, 82);
+  border-radius: 10px;
+}
+
+
+
+.ticket-box {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 50px;
+  padding-left: 10px;
+  padding-right: 10px;  
+
+  border: 2px solid darkgray;
+  border-bottom: none;
+}
+
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 50px;
+}
+
+.control {
+  box-sizing: border-box;  
+  width: 30px;
+  height: 30px;
+
+  align-self: center;
+
+  border: 2px solid darkgray;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.name-box {
+  width: 60%;
+  padding-left: 10px;
+
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+
+  cursor: s-resize;
+}
+
+.date-box {
+  display: flex;
+  padding-right: 10px;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.control-box {
+  display: flex;
+
+  width: 70px;
+
+  justify-content: space-between;
+}
+
+.status-box.checked {
+  background-image: url("../img/check1.png");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 6px;
+}
+
+.edit-box,
+.delete-box {
+  background-image: url("../img/icons.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position-y: 3px; 
+}
+
+.edit-box {
+  background-position-x: 5px; 
+}
+
+.delete-box {
+  background-position-x: -19px; 
+}
+
+.description-box {
+  margin-left: 40px;
+  margin-right: 220px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  word-break: break-all;
+}
+
+.modal {
+  position: absolute;
+
+  width: 500px;
+  box-sizing: border-box;
+  padding: 10px;
+
+  color: gray;
+  font-family: "Arial", sans-serif;
+  border: 2px solid darkgray;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.row label,
+.row input,
+.row textarea {
+  margin-bottom: 10px;
+}
+
+.row input {
+  height: 30px;
+  border-radius: 10px;
+
   outline: none;
 }
 
-.input.valid {
-  border: 1px solid green;
+textarea {
+  resize: none;
+  height: 80px;
 }
 
-.input.error {
-  border: 1px solid red;
+.btns-row {
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
-.btn {
-  display: inline-block;
+.btns-row button{
+  box-sizing: border-box;  
+  width: 100px;
+  height: 30px;
+  justify-content: flex-end;
+
+  color: gray;
+  border: 2px solid gray;
+  border-radius: 10px;
+  outline: none;
+
+  cursor: pointer;
+}
+
+.btns-row button:first-of-type {
+  margin-right: 10px;
+}
+
+.form-title {
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  text-transform: uppercase;
   text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  border: 1px solid #ced4da;
 }
 
-.form-control {
-  position: relative;
-  margin-bottom: 5px;
+.hidden {
+  display: none;
+}
+
+.blocked {
+  pointer-events: none;
 }

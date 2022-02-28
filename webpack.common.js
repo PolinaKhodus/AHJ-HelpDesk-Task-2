@@ -1,20 +1,15 @@
+/* eslint-disable linebreak-style */
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  target: 'web',
-  devtool: 'inline-source-map',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
   },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, '/dist'),
-    open: true,
-    compress: true,
-  },
+
   module: {
     rules: [
       {
@@ -24,6 +19,7 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+
       {
         test: /\.html$/,
         use: [
@@ -32,23 +28,43 @@ module.exports = {
           },
         ],
       },
+
       {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader, 'css-loader',
         ],
       },
+
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
+      },
+
     ],
   },
+
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
     }),
+
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css',
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
+
+  devServer: {
+    contentBase: path.join(__dirname, 'src'),
+    open: true,
+    port: 9000,
+  },
 };
