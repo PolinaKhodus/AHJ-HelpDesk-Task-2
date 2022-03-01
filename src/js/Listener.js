@@ -6,8 +6,9 @@ import Ticket from './Ticket';
 export default class Listener {
   static onPageLoad() {
     const xhr = new XMLHttpRequest();
-    
-    const URL = 'http://localhost:9000';
+
+    // const URL = 'http://localhost:7070';
+    const URL = 'https://polina-khodus-heroku.herokuapp.com';
 
     xhr.open('GET', `${URL}?method=allTicket`, true);
 
@@ -47,7 +48,8 @@ export default class Listener {
       params.append('id', id);
       params.append('status', String(newStatus));
 
-      const URL = 'http://localhost:9000';
+      // const URL = 'http://localhost:7070';
+      const URL = 'https://polina-khodus-heroku.herokuapp.com';
 
       const xhr = new XMLHttpRequest();
       xhr.open('PATCH', URL, true);
@@ -98,7 +100,8 @@ export default class Listener {
       this.modals[type].hide();
       this.widget.classList.remove('blocked');
 
-      const URL = 'http://localhost:9000';
+      // const URL = 'http://localhost:7070';
+      const URL = 'https://polina-khodus-heroku.herokuapp.com';
 
       const xhr = new XMLHttpRequest();
 
@@ -116,8 +119,9 @@ export default class Listener {
       const { id } = this.selectedTicket.dataset;
       params.append('method', 'deleteTicket');
       params.append('id', id);
-
-      const URL = 'http://localhost:9000';
+      
+      // const URL = 'http://localhost:7070';
+      const URL = 'https://polina-khodus-heroku.herokuapp.com';
 
       const xhr = new XMLHttpRequest();
       xhr.open('PATCH', URL, true);
@@ -146,7 +150,8 @@ export default class Listener {
           params.append(name.split('-')[1], value.trim() ? value : 'No description');
         });
 
-      const URL = 'http://localhost:9000';
+      // const URL = 'http://localhost:7070';
+      const URL = 'https://polina-khodus-heroku.herokuapp.com';
 
       const xhr = new XMLHttpRequest();
       xhr.open('POST', URL, true);
