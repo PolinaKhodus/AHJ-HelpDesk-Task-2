@@ -1,5 +1,7 @@
 # AHJ-HelpDesk-Task-2
 
+[![Build status](https://ci.appveyor.com/api/projects/status/2rxk4eyi5yk2yyx7?svg=true)](https://ci.appveyor.com/project/PolinaKhodus/ahj-helpdesk-task-2-0562n)
+
 HelpDesk: Frontend
 Легенда
 API вами написано, пора приступить к своим прямым обязанностям - написанию фронтенда, который будет с этим API работать.
